@@ -1,0 +1,241 @@
+/* Base and Typography */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #1b0a2a 0%, #06020c 100%);
+    color: #f0f0f0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1000px; /* Crucial for 3D rotations */
+}
+
+/* Main Cinematic Container */
+.main-video-stage {
+    width: 960px;
+    height: 580px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 32px;
+    padding: 50px;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scene Core Logic */
+.scene {
+    position: absolute;
+    top: 50px; left: 50px; right: 50px; bottom: 100px;
+    opacity: 0;
+    transform: translateZ(-200px) scale(0.9);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+.scene.active {
+    opacity: 1;
+    transform: translateZ(0px) scale(1);
+    pointer-events: auto;
+}
+
+/* Global Effects & Headings */
+h2 {
+    font-size: 2.8rem; font-weight: 800;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #00f2fe, #ff08e2);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.glow-text {
+    font-size: 3.5rem; letter-spacing: 2px;
+    text-shadow: 0 0 25px rgba(0, 242, 254, 0.7);
+}
+
+.subtitle { font-size: 1.2rem; color: #bbb; }
+.highlight { color: #ff08e2; font-weight: 600; }
+
+/* Global Animations Wrapper */
+lottie-player {
+    width: 100%;
+    height: 100%;
+}
+
+/* 🔄 SCENE 1: Profile & Coding */
+.split-layout {
+    display: flex; gap: 40px;
+    width: 100%; align-items: center;
+}
+
+.avatar-area img {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 5px solid #00f2fe;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+}
+
+.coding-wrapper {
+    width: 300px; height: 160px; margin-top: 15px;
+}
+
+/* 🔄 SCENE 2: 3D FLIP CARDS (Impression Maker) */
+.academic-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    width: 100%; max-width: 600px;
+}
+
+.academic-card.full-width { grid-column: span 2; }
+
+/* The container - set the perspective */
+.flip-card {
+    background-color: transparent;
+    width: 100%; height: 160px;
+    perspective: 1000px;
+}
+
+/* The inner container (needed to position the front and back) */
+.flip-card-inner {
+    position: relative; width: 100%; height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+/* Define the hover state: Do the flip */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Position front and back (shared) */
+.flip-card-front, .flip-card-back {
+    position: absolute; width: 100%; height: 100%;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 10px;
+}
+
+/* Style the front side */
+.flip-card-front {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+}
+.flip-card-front lottie-player {
+    width: 100px; height: 100px; margin-bottom: 5px;
+}
+.flip-card-front h3 { font-size: 1.1rem; }
+
+/* Style the back side (text side) */
+.flip-card-back {
+    background: #00f2fe;
+    color: #000;
+    transform: rotateY(180deg); /* Start rotated */
+    font-weight: 600;
+}
+
+/* 🔄 SCENE 3: Tech Interests (3D Spheres) */
+.tech-container {
+    display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+}
+
+.tech-sphere {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(255, 8, 226, 0.1));
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.tech-sphere:hover {
+    background: linear-gradient(135deg, #00f2fe, #ff08e2);
+    color: #000;
+    box-shadow: 0 10px 25px rgba(255, 8, 226, 0.5);
+    transform: rotateY(360deg); /* Complete 3D spin on hover */
+}
+
+/* 🔄 SCENE 4: Hobbies & Personal */
+.animation-hobbies {
+    width: 400px; height: 180px; margin-bottom: 20px;
+}
+
+.hobby-list {
+    display: flex; gap: 15px;
+}
+.hobby-tag {
+    background: #2b1339;
+    padding: 8px 20px; border-radius: 20px; font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 🔄 SCENE 5: Gratitude & Goals */
+.trophy-wrapper {
+    width: 300px; height: 300px;
+}
+
+.goals-box {
+    background: rgba(0, 242, 254, 0.03);
+    padding: 25px; border-radius: 20px;
+    border-left: 5px solid #ff08e2;
+}
+.goals-box h3 { margin-bottom: 10px; color: #ff08e2;}
+.goals-box ul { list-style: "👉"; margin-left: 15px; }
+.goals-box li { margin-bottom: 10px; font-size: 1rem; }
+
+/* Cinematic Controls */
+.video-controls {
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 10; margin-top: auto;
+}
+
+button {
+    background: #00f2fe; color: #000;
+    border: none; padding: 12px 28px; border-radius: 10px;
+    font-weight: 800; cursor: pointer; transition: 0.3s; text-transform: uppercase;
+}
+
+button:disabled {
+    background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.2);
+    cursor: not-allowed;
+}
+
+.progression-bar {
+    flex-grow: 1; height: 8px; background: rgba(255, 255, 255, 0.05);
+    margin: 0 30px; border-radius: 4px; overflow: hidden;
+}
+
+.bar-fill {
+    width: 20%; height: 100%;
+    background: linear-gradient(90deg, #00f2fe, #ff08e2);
+    transition: width 0.6s ease;
+}
+
+/* Entry Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 1s ease forwards; }
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+.bounce-in { animation: bounceIn 0.8s ease forwards; animation-delay: 0.5s; opacity: 0;}

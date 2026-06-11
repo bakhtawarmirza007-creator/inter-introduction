@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakhtawar Azhar - Introduction Presentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+
+    <div class="main-video-stage">
+        
+        <div class="scene active" id="scene-1">
+            <div class="split-layout">
+                <div class="avatar-area fade-in">
+                    <img src="profile.jpg" alt="Bakhtawar Azhar" onerror="this.src='https://via.placeholder.com/150'">
+                </div>
+                <div class="text-area">
+                    <h1 class="glow-text">Bakhtawar Azhar</h1>
+                    <p class="subtitle">You can call me <span class="highlight">Bakhtawar</span></p>
+                    <span class="badge">Frontend Web Developer Intern</span>
+                    <div class="animation-wrapper coding-wrapper">
+                        <lottie-player src="assets/coding.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scene" id="scene-2">
+            <h2>Academic Journey</h2>
+            <div class="grid-layout academic-grid">
+                
+                <div class="flip-card academic-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <lottie-player src="assets/graduation.json" loop autoplay></lottie-player>
+                            <h3>Major</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>BS Computer Science (BSCS)</p>
+                            <span class="gpa-tag">CGPA: 3.398</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card academic-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <lottie-player src="assets/university.json" loop autoplay></lottie-player>
+                            <h3>University</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>MNS University of Engineering & Technology, Multan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card academic-card full-width">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <lottie-player src="assets/calendar.json" loop autoplay></lottie-player>
+                            <h3>Current Progress</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>4th Semester In Progress</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="scene" id="scene-3">
+            <h2>Tech Interests & Skills</h2>
+            <div class="tech-container">
+                <div class="tech-sphere spin-3d">Frontend Web Dev (HTML, CSS, JS)</div>
+                <div class="tech-sphere spin-3d">Python & C++ Programming</div>
+                <div class="tech-sphere spin-3d">AI & OpenAI API Integration</div>
+                <div class="tech-sphere spin-3d">Prompt Engineering</div>
+                <div class="tech-sphere spin-3d">Agile Framework & Scrum</div>
+                <div class="tech-sphere spin-3d">Git & GitHub</div>
+            </div>
+        </div>
+
+        <div class="scene" id="scene-4">
+            <h2>Beyond The Code</h2>
+            <p class="section-subtitle">When I am not developing platforms, I enjoy creative spaces:</p>
+            <div class="animation-hobbies">
+                 <lottie-player src="assets/hobbies.json" background="transparent" speed="1" loop autoplay></lottie-player>
+            </div>
+            <div class="hobby-list">
+                <span class="hobby-tag">🎨 Sketching & Creative Art</span>
+                <span class="hobby-tag">🍳 Culinary Arts & Cooking</span>
+                <span class="hobby-tag">🎮 Exploring Immersive Media</span>
+            </div>
+        </div>
+
+        <div class="scene" id="scene-5">
+            <h2 class="thank-you glow-text">Thank You, Internee.pk!</h2>
+            <p class="desc-text">Grateful for this platform to collaborate and build impactful frontend solutions.</p>
+            
+            <div class="split-layout goal-split">
+                <div class="text-area goals-box bounce-in">
+                    <h3>My Internship Goals:</h3>
+                    <ul>
+                        <li>🚀 Deepen my execution of modern CSS layouts and JS logic.</li>
+                        <li>💻 Deploy highly functional, production-ready interfaces.</li>
+                        <li>🤝 Network actively with fellow ambitious developers.</li>
+                    </ul>
+                </div>
+                <div class="animation-area trophy-wrapper">
+                    <lottie-player src="assets/trophy.json" background="transparent" speed="1.3" loop autoplay></lottie-player>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-controls">
+            <button id="prevBtn" disabled>Back</button>
+            <div class="progression-bar">
+                <div class="bar-fill" id="progress"></div>
+            </div>
+            <button id="nextBtn">Next Scene</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
